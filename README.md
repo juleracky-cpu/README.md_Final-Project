@@ -31,21 +31,55 @@ income_spending_survey/
 │   ├── age_vs_income.png
 │   ├── gender_spending.png
 │   └── total_expenses_by_gender.png
-├── requirements.txt
+├── requirements.txt          
+├── export_data.py            # MongoDB → CSV
+├── power point presentation
 └── README.md                 # This file
-└── export_data.py            # MongoDB → CSV
+                      
 
-## Instructions
-1. Install MongoDB
-2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-3. Run the Flask app:
-   Bash
-   python app.py
-4. Open browser and go to: http://127.0.0.1:5000/
-5. Fill the survey multiple times to generate data
-6. Open jupyter/analysis.ipynb to view analysis and generate charts
+# How to Run
+1. Install Dependencies
+pip install flask pymongo pandas matplotlib seaborn
+
+2. Run Flask Application
+python app.py
+Open browser:
+http://127.0.0.1:5000
+
+3. Submit Survey Data
+- Enter Age, Gender, Income
+- Fill expense categories
+- Submit form
+
+4. Verify Data in MongoDB
+-Open MongoDB Compass
+-Connect to:
+mongodb://localhost:27017
+-Database: healthcare_db
+-Collection: users
+
+5. Export Data to CSV
+python export_data.py
+
+Output:
+
+data/users.csv
+
+6. Run Data Analysis
+
+Open Analysis.ipynb in Jupyter and run:
+
+df = pd.read_csv("data/users.csv")
+
+7. Generate Visualizations
+Three high-resolution charts have been exported to the charts/ folder:
+- age_vs_income.png → Average Total Income by Age
+- gender_spending.png → Average Spending by Gender and Expense Category
+- total_expenses_by_gender.png → Distribution of Total Expenses by Gender
+These charts are ready to be inserted directly into the PowerPoint presentation.
+
+8. AWS Deployment
+The application was deployed on AWS EC2 using Gunicorn and accessed via a public IP address.
 
 # Requirements.txt
 Flask
@@ -53,18 +87,6 @@ pymongo
 pandas
 matplotlib
 seaborn
-
-# Visualizations for Client Presentation
-Three high-resolution charts have been exported to the charts/ folder:
-- age_vs_income.png → Average Total Income by Age
-- gender_spending.png → Average Spending by Gender and Expense Category
-- total_expenses_by_gender.png → Distribution of Total Expenses by Gender
-These charts are ready to be inserted directly into the PowerPoint presentation.
-
-# Deployment on AWS
-Recommended: Use AWS EC2 (Ubuntu) + MongoDB Atlas
-Connect Flask app to MongoDB Atlas connection string
-Use Gunicorn + Nginx for production
 
 # Technologies Used
 - Python + Flask (Backend & Web)
