@@ -6,6 +6,20 @@ This project is a complete data collection and analysis system developed for a h
 
 These insights provide actionable intelligence to support targeted marketing and product positioning for the upcoming healthcare offering.
 
+# Healthcare Spending Survey 🏥
+
+This is a Flask-based web application designed to collect and analyze healthcare-related income and spending data. 
+
+## 🌐 Live Application
+The application is deployed on Heroku and can be accessed here:
+**[Click here to view the Survey](https://jule-flask-app-01605cf3ae82.herokuapp.com/)**
+
+## Tech Stack
+- Backend: Flask (Python)
+- Database: MongoDB Atlas (Cloud)
+- Deployment: Heroku
+- Frontend: HTML5, CSS3
+
 ## Features Implemented
 - Web Interface: Flask web application with user-friendly survey form
 - Data Collection: Age, Gender, Total Income, and checkbox plus amount fields for 5 expense categories (Utilities, Entertainment, School Fees, Shopping, Healthcare)
@@ -19,6 +33,7 @@ These insights provide actionable intelligence to support targeted marketing and
 ## Project Structure
 income_spending_survey/
 ├── app.py                    # Flask web application
+├── Procfile
 ├── models                    
 │   └── user.py               # User class for data processing
 ├── templates/
@@ -78,7 +93,7 @@ Three high-resolution charts have been exported to the charts/ folder:
 - total_expenses_by_gender.png → Distribution of Total Expenses by Gender
 These charts are ready to be inserted directly into the PowerPoint presentation.
 
-8. AWS Deployment
+8. Heroku Deployment
 The application was deployed on AWS EC2 using Gunicorn and accessed via a public IP address.
 
 # Requirements.txt
@@ -87,6 +102,8 @@ pymongo
 pandas
 matplotlib
 seaborn
+gunicorn
+dnspython
 
 # Technologies Used
 - Python + Flask (Backend & Web)
@@ -106,5 +123,5 @@ All assignment requirements have been fully addressed:
 
 
 Author:Jule Ahebwa
-Date: 06th April 2026
+Date: 12th April 2026
 Company: Data Analysis Company, Washington DC
